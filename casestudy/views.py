@@ -7,7 +7,7 @@ from django.http import HttpResponse
 #	return HttpResponse("Hello, world. You're at the case study home page.")
 
 def index(request):
-    latest_likes = Likes.objects.filter(company='Starbucks').order_by('time')[:20]
+    latest_likes = Likes.objects.filter(company='Starbucks').order_by('-time')[:20]
     #latest_likes = Likes.objects.all()
 
     t = loader.get_template('casestudy/index.html')

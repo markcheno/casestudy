@@ -40,6 +40,8 @@
         {% endfor %}
       ];
 
+      line1.reverse()
+
       var plot2 = $.jqplot('chart1', [line1], {
         series:[{xaxis:'xaxis', yaxis:'yaxis'}],
         axesDefaults: {
