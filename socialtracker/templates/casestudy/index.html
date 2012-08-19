@@ -2,24 +2,19 @@
 {% load bootstrap_toolkit %}
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Facebook Company Likes</title>
-    <meta name="description" content="">
-    <meta name="author" content="Mark Chenoweth">
-    {% bootstrap_stylesheet_tag %}
+  <meta charset="utf-8">
+  <title>Facebook Company Likes</title>
+  <meta name="description" content="">
+  <meta name="author" content="Mark Chenoweth">
+  {% bootstrap_stylesheet_tag %}
 	<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
 	<script language="javascript" type="text/javascript" src="/static/jquery.min.js"></script>
 	<script language="javascript" type="text/javascript" src="/static/jquery.jqplot.min.js"></script>
 	<script type="text/javascript" src="/static/jqplot.highlighter.min.js"></script>
-	<script type="text/javascript" src="/static/jqplot.cursor.min.js"></script>
-	<script type="text/javascript" src="/static/jqplot.BarRenderer.min.js"></script>
-	<script type="text/javascript" src="/static/jqplot.dateAxisRenderer.min.js"></script>
 	<script type="text/javascript" src="/static/jqplot.categoryAxisRenderer.min.js"></script>
 	<script type="text/javascript" src="/static/jqplot.categoryAxisTickRenderer.min.js"></script>
 	<script type="text/javascript" src="/static/jqplot.canvasTextRenderer.min.js"></script>
 	<script type="text/javascript" src="/static/jqplot.canvasAxisTickRenderer.min.js"></script>
-
-
 	<link rel="stylesheet" type="text/css" href="/static/jquery.jqplot.css" />
 </head>
 
@@ -27,9 +22,9 @@
 
 <div class="container">
 
-    {% block content %}
+  {% block content %}
 
-        <center><h1>Facebook Likes for Starbucks</h1></center>
+  <center><h1>Facebook Likes for Starbucks</h1></center>
 
 	{% if latest_likes %}
 		
@@ -37,53 +32,48 @@
  
 		<script> 
 
-$(document).ready(function(){
+    $(document).ready(function(){
 
-     var line1 = [
-      	{% for like in latest_likes %}
-       		['{{like.time|date:'Y-m-d H:i:s'}}',{{like.num_likes}}],
-    	{% endfor %}
+      var line1 = [
+        {% for like in latest_likes %}
+       	  ['{{like.time|date:'Y-m-d H:i:s'}}',{{like.num_likes}}],
+        {% endfor %}
       ];
 
-  
-  	var plot2 = $.jqplot('chart1', [line1], {
-    	series:[{xaxis:'xaxis', yaxis:'yaxis'}],
-    	axesDefaults: {
-        	tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
-        	textickOptions: {
-          		angle: 30
-        	}
-    	},
-    	axes: {
-      		xaxis: {
-        		renderer: $.jqplot.CategoryAxisRenderer
+      var plot2 = $.jqplot('chart1', [line1], {
+        series:[{xaxis:'xaxis', yaxis:'yaxis'}],
+        axesDefaults: {
+          tickRenderer: $.jqplot.CanvasAxisTickRenderer
+        },
+        axes: {
+          xaxis: {
+        	  renderer: $.jqplot.CategoryAxisRenderer,
+            tickOptions: {
+                angle: -30
+            }
       		},
       		yaxis: {
         		autoscale:true
       		},
-    	},
-
-     	highlighter: {
-      		show: false
-    	},
-    	cursor: {
+        },
+     	  highlighter: {
       		show: true,
-      		tooltipLocation:'sw'
-    	} 	
+          formatString:'%s, %d'
+        },
+      });
     });
-});
 
-	</script>
+    </script>
 
-	{% else %}
-    	<p>No data is available.</p>
-	{% endif %}
+  {% else %}
+    <p>No data is available.</p>
+  {% endif %}
 
 	{% endblock %}
 
-    <footer class="row">
-    	<center><a href="http://trading.cheno.net">By Mark Chenoweth</a></center>
-    </footer>
+  <footer class="row">
+    <center><a href="http://trading.cheno.net">By Mark Chenoweth</a></center>
+  </footer>
 
 </div> <!-- container -->
 
