@@ -7,7 +7,7 @@ import datetime
 import re
 
 #
-# Connect to the database
+# Connect to the database (postgres, herkou friendly)
 # Needs DATABASE_URL environment variable defined. 
 # For osx: export DATABASE_URL="postgres://mark@localhost/mark"
 #
