@@ -1,0 +1,6 @@
+1,2012-08-24 18:01:23+00,Error retrieving like count for Starbucks. e=HTTP Error 403: Forbidden
+2,2012-08-24 18:01:23+00,Error retrieving like count for Oracle. e=HTTP Error 403: Forbidden
+3,2012-09-18 17:00:20+00,Error retrieving like count for Starbucks. e=HTTP Error 500: Internal Server Error
+4,2012-09-18 17:00:21+00,Error retrieving like count for Oracle. e=HTTP Error 500: Internal Server Error
+5,2012-09-18 18:00:14+00,Error retrieving like count for Starbucks. e=HTTP Error 500: Internal Server Error
+6,2012-09-18 18:00:14+00,Error retrieving like count for Oracle. e=HTTP Error 500: Internal Server Error
